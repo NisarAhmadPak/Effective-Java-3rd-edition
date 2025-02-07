@@ -2,11 +2,15 @@
 - ## Consider static factory methods instead of constructors
     - Advantages:
       - One advantage of static factory methods is that, unlike constructors, they have names.
-        - Example: In Example class [`Example`](src/main/java/org/example/Example.java#L3) 
+        - Example: [`In Example class `](src/main/java/org/example/Example.java#L3) there is a static method  [`getInstance()`](src/main/java/org/example/Example.java#L12)  which reflects the proper meaning of method, but on other side constructor does not have name like this
       - A second advantage of static factory methods is that, unlike constructors, they are not required to create a new object each time they’re invoked
+        - Example: [`In Example class `](src/main/java/org/example/Example.java#L3) there is a static [`INSTANCE`](src/main/java/org/example/Example.java#L4) created, and it a static, it means it will be created once, even we will call  [`getInstance()`](src/main/java/org/example/Example.java#L12) thousands times
       - A third advantage of static factory methods is that, unlike constructors, they can return an object of any subtype of their return type.
+        - Example: [`In AnimalFactory class `](src/main/java/org/example/AnimalFactory.java#L25) there is a static method [`getAnimal()`](src/main/java/org/example/AnimalFactory.java#L27) which return subtype based on the input 
       - A fourth advantage of static factories is that the class of the returned object can vary from call to call as a function of the input parameters. 
+        - Example: [`In AnimalFactory class `](src/main/java/org/example/AnimalFactory.java#L25) there is a static method [`getAnimal()`](src/main/java/org/example/AnimalFactory.java#L27) which return subtype based on the input
       - A fifth advantage of static factories is that the class of the returned object need not exist when the class containing the method is written.
+        - Example  [`In AnimalFactory1 class `](src/main/java/org/example/AnimalFactory1.java#L31) we are getting instance dynamically, if we create a new animal we don`t need to modify factory class  a
     - Limitations
        - The main limitation of providing only static factory methods is that classes without public or protected constructors cannot be subclassed.
        - A second shortcoming of static factory methods is that they are hard for programmers to find.
